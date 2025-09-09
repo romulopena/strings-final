@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+:root {
+  --cor-fundo: #0a0f18;
+  --cor-principal: #00e5ff; /* Ciano de néon */
+  --cor-secundaria: #ff00e5; /* Magenta de néon */
+  --cor-texto: #e0e0e0;
+  --borda-futurista: 2px solid var(--cor-principal);
+  --brilho-principal: 0 0 10px var(--cor-principal), 0 0 20px var(--cor-principal);
+  --brilho-secundario: 0 0 10px var(--cor-secundaria), 0 0 20px var(--cor-secundaria);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "titulo titulo"
+    "entrada botao"
+    "resultado resultado";
+  grid-template-columns: 2fr 1fr;
+  width: 90%;
+  max-width: 60rem;
+  gap: 2rem;
+  padding: 3rem;
+  background: rgba(10, 15, 24, 0.5);
+  border: var(--borda-futurista);
+  box-shadow: var(--brilho-principal);
+  position: relative;
+  overflow: hidden;
+}
+
+h1 {
+  grid-area: titulo;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--cor-principal);
+  text-shadow: var(--brilho-principal);
+  margin-bottom: 1rem;
+}
+
+#entrada-de-texto {
+  grid-area: entrada;
+  height: 12rem;
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-principal);
+  box-shadow: 0 0 5px var(--cor-principal);
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+#entrada-de-texto:focus {
+  outline: none;
+  border-color: var(--cor-secundaria);
+  box-shadow: var(--brilho-secundario);
+}
+
+#entrada-de-texto::placeholder {
+  color: #555;
+  font-style: italic;
+}
+
+#botao-palavrachave {
+  grid-area: botao;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--cor-texto);
+  background: var(--cor-principal);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--brilho-principal);
+  transition: all 0.3s ease;
+}
+
+#botao-palavrachave:hover {
+  background: var(--cor-secundaria);
+  box-shadow: var(--brilho-secundario);
+  transform: scale(1.05);
+}
+
+#resultado-palavrachave {
+  grid-area: resultado;
+  min-height: 8rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--cor-secundaria);
+  border: 1px solid var(--cor-secundaria);
+  box-shadow: 0 0 5px var(--cor-secundaria);
+  overflow-y: auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
